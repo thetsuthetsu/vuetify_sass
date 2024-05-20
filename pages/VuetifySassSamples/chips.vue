@@ -7,7 +7,12 @@
             <v-row>
                 <div class="sass_color1">
                     <v-chip>
-                        $custom_chip_color1
+                        $custom_chip_color1(global)
+                    </v-chip>
+                </div>
+                <div class="sass_color1_scoped">
+                    <v-chip>
+                        $custom_chip_color1(scoped)
                     </v-chip>
                 </div>
                 <div class="sass_color2">
@@ -133,7 +138,13 @@
 </script>
 <style lang="scss">
 @import "~/assets/variables.scss";
+
 .sass_color1 {
+    // $custom_chip_color1: #FF0000 !defalut; // NG: Invalid flag name
+    color: $custom_chip_color1;
+}
+.sass_color1_scoped {
+    $custom_chip_color1: #FF0000 !global;
     color: $custom_chip_color1;
 }
 .sass_color2 {
